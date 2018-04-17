@@ -6,26 +6,30 @@ import axios from 'axios'
 class Login extends Component {
   state = {
     id: 0,
-    twitter_id: "",
-    name: "",
-    access_token: "",
-    access_token_secret: "",
+    twitter_id: "000000",
+    name: "takashi",
+    access_token: "access_token_yade",
+    access_token_secret: "access_token_secret_yade",
   };
+
+
+  componentWillMount = () => {
+    this.get_data()
+  }
 
   async get_data() {
     const response = await axios({
       method: 'get',
       url: 'http://127.0.0.1:5000/',
     });
-    console.log('aaaaaaaaaaaaaa')
-    console.log(response);
-    // this.setState({
-    //   id: response.data,
-    //   twitter_id: "",
-    //   name: "",
-    //   access_token: "",
-    //   access_token_secret: "",
-    // });
+    const responseData = response.data[0]
+    this.setState({
+      id: responseData['id'],
+      twitter_id: responseData['twitter_id'],
+      name: responseData['name'],
+      access_token: responseData['access_token'],
+      access_token_secret: responseData['access_token_secret'],
+    });
   }
 
   handleChangeName = event => {
@@ -48,10 +52,17 @@ class Login extends Component {
   }
 
   render() {
-    this.get_data()
     return (
       <div>
-        Hello world
+        {this.state.id}
+        <br/>
+        {this.state.twitter_id}
+        <br/>
+        {this.state.name}
+        <br/>
+        {this.state.access_token}
+        <br/>
+        {this.state.access_token_secret}
       </div>
     );
   }
