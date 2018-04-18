@@ -5,7 +5,9 @@ import Login from './login.js'
 
 class App extends Component {
   render() {
-    console.log(window.location.href)
+    const querys = window.location.search
+    console.log(querys)
+    console.log(querys === '')
     return (
       <div className="App">
         <header className="App-header">

@@ -14,7 +14,7 @@ class Login extends Component {
 
 
   componentWillMount = () => {
-    this.get_data()
+    // this.get_data()
     this.handleCache()
   }
 
