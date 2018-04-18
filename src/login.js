@@ -15,6 +15,7 @@ class Login extends Component {
 
   componentWillMount = () => {
     this.get_data()
+    this.handleCache()
   }
 
   async get_data() {
@@ -49,6 +50,10 @@ class Login extends Component {
       });
     }
     event.preventDefault();
+  }
+
+  handleCache = () => {
+    // localStorage.setItem('hogehoge', 'hugahuga')
   }
 
   render() {
