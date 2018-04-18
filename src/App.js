@@ -5,6 +5,7 @@ import Login from './login.js'
 
 class App extends Component {
   render() {
+    console.log(window.location.href)
     return (
       <div className="App">
         <header className="App-header">
