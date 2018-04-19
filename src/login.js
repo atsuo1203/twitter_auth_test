@@ -2,27 +2,12 @@ import React, { Component } from 'react';
 import axios from 'axios'
 
 class Login extends Component {
-  state = {
-    id: 0,
-    twitter_id: "000000",
-    name: "takashi",
-    access_token: "access_token_yade",
-    access_token_secret: "access_token_secret_yade",
-  };
-
-
   componentWillMount = () => {
     console.log('componentWillMount')
-    console.log(this.props)
-    console.log(this.props.name)
-    console.log(this.props.access_token)
   }
 
   componentDidMount = () => {
     console.log('componentDidMount')
-    console.log(this.props)
-    console.log(this.props.name)
-    console.log(this.props.access_token)
   }
 
   async get_data() {
@@ -40,45 +25,16 @@ class Login extends Component {
     });
   }
 
-  handleChangeName = event => {
-    this.setState({
-      name: event.target.value
-    });
-    this.setState({
-      resultName: event.target.value
-    });
-  }
-
-  handleSubmit = event => {
-    if (this.state.name !== '') {
-      this.get_data();
-      this.setState({
-        name: ''
-      });
-    }
-    event.preventDefault();
-  }
-
   handleCache = () => {
     // localStorage.setItem('hogehoge', 'hugahuga')
   }
 
   render() {
-    console.log('render')
-    console.log(this.props)
-    console.log(this.props.name)
-    console.log(this.props.access_token)
     return (
       <div>
-        {this.state.id}
-        <br/>
-        {this.state.twitter_id}
-        <br/>
-        {this.state.name}
-        <br/>
-        {this.state.access_token}
-        <br/>
-        {this.state.access_token_secret}
+        <button>
+          ログインボタン
+        </button>
       </div>
     );
   }
