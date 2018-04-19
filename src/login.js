@@ -15,25 +15,24 @@ class Login extends Component {
       method: 'get',
       url: 'http://127.0.0.1:5000/',
     });
-    const responseData = response.data[0]
-    this.setState({
-      id: responseData['id'],
-      twitter_id: responseData['twitter_id'],
-      name: responseData['name'],
-      access_token: responseData['access_token'],
-      access_token_secret: responseData['access_token_secret'],
-    });
+    console.log(response)
   }
 
   handleCache = () => {
     // localStorage.setItem('hogehoge', 'hugahuga')
   }
 
+  handleAuthorize = () => {
+    document.location.href = 'http://127.0.0.1:5000/authorize'
+  }
+
   render() {
     return (
       <div>
-        <button>
-          ログインボタン
+        <button
+        onClick={this.handleAuthorize}
+        >
+        ログイン
         </button>
       </div>
     );
