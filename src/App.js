@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Login from './login.js'
+import Logout from './logout.js'
 import Profile from './profile.js'
 
 class App extends Component {
@@ -31,10 +32,15 @@ class App extends Component {
 
     if ((localA !== null) && (localN !== null)){
       component = (
-      <Profile
-        name={localN}
-        url={localU}
-      />)
+        <div>
+          <Profile
+            name={localN}
+            url={localU}
+          />
+          <br/>
+          <Logout />
+        </div>
+      )
     }
 
     if ((localA === null) && (querys !== '')){
@@ -45,10 +51,16 @@ class App extends Component {
         const value = query.split('=')[1]
         queryDict[key]=value
       })
-      component = (<Profile
-        name={queryDict.name}
-        url={queryDict.url}
-      />)
+      component = (
+        <div>
+          <Profile
+            name={queryDict.name}
+            url={queryDict.url}
+          />
+          <br/>
+          <Logout />
+        </div>
+      )
       localStorage.setItem('access_token', queryDict.access_token)
       localStorage.setItem('name', queryDict.name)
       localStorage.setItem('url', queryDict.url)
