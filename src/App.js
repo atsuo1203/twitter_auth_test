@@ -22,6 +22,7 @@ class App extends Component {
     const querys = window.location.search.slice(1)
     const localA = localStorage.getItem('access_token')
     const localN = localStorage.getItem('name')
+    const localU = localStorage.getItem('url')
     let component = null
 
     if ((localA === null) && (querys === '')) {
@@ -32,6 +33,7 @@ class App extends Component {
       component = (
       <Profile
         name={localN}
+        url={localU}
       />)
     }
 
@@ -45,9 +47,11 @@ class App extends Component {
       })
       component = (<Profile
         name={queryDict.name}
+        url={queryDict.url}
       />)
       localStorage.setItem('access_token', queryDict.access_token)
       localStorage.setItem('name', queryDict.name)
+      localStorage.setItem('url', queryDict.url)
     }
 
     return (
