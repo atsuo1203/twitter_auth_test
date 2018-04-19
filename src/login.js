@@ -1,6 +1,4 @@
-import React, {
-  Component
-} from 'react';
+import React, { Component } from 'react';
 import axios from 'axios'
 
 class Login extends Component {
@@ -14,8 +12,17 @@ class Login extends Component {
 
 
   componentWillMount = () => {
-    // this.get_data()
-    this.handleCache()
+    console.log('componentWillMount')
+    console.log(this.props)
+    console.log(this.props.name)
+    console.log(this.props.access_token)
+  }
+
+  componentDidMount = () => {
+    console.log('componentDidMount')
+    console.log(this.props)
+    console.log(this.props.name)
+    console.log(this.props.access_token)
   }
 
   async get_data() {
@@ -57,6 +64,10 @@ class Login extends Component {
   }
 
   render() {
+    console.log('render')
+    console.log(this.props)
+    console.log(this.props.name)
+    console.log(this.props.access_token)
     return (
       <div>
         {this.state.id}
