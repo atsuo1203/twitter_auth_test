@@ -9,7 +9,7 @@ $ npm install
 ## start
 
 ```
-npm start
+$ npm start
 ```
 
 ## 備考
